@@ -10,9 +10,10 @@
 Verification status is computed by CI on every run (`./elc test`) and recorded
 in `reports/report.json`. Only `verified` implementations count.
 
-### Next up (goal: 64 languages, then 128 and 256)
+### Next up
 
-C, Rust, Prolog, JavaScript, Java, COBOL, FORTRAN, Haskell.
+Goal: 64 languages, built in sessions of ten. See the session plan in
+[ROADMAP.md](ROADMAP.md#-64-the-first-goal).
 
 ## What counts as a distinct language
 

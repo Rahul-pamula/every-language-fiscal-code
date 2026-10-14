@@ -4,10 +4,9 @@
 
 > Italian original: [docs/CHALLENGE.it.md](docs/CHALLENGE.it.md)
 
-> **Update, October 2026.** The first public goal is **64 languages** (2⁶),
-> followed by 128 and 256, so every milestone is a power of two. See
-> [Why 64?](README.md#-why-64) in the README. The 100-language targets below
-> reflect the original proposal.
+> **Update, October 2026.** Milestones are now 64 (2⁶), 99, 128, 256 and
+> beyond, with no deadlines. See [ROADMAP.md](ROADMAP.md). The 100-language
+> targets below reflect the original proposal.
 
 **Status:** consolidated project proposal  
 **Date:** 14 October 2026  

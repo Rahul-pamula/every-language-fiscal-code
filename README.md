@@ -35,13 +35,14 @@ Each implementation in this repository:
 - ✅ **passes the same 87 test vectors** with identical JSON output;
 - 🔍 **leaves evidence**: source hashes, environment, per-test results and logs.
 
-Our target is **64 languages**, and then we keep doubling: **128**, **256** and
-beyond. [Why 64?](#-why-64)
+Our first goal is **64 languages**, then **99**, **128**, **256** and beyond.
+See [Why 64?](#-why-64) and the [roadmap](ROADMAP.md).
 
 ```text
-Goal      2⁶   ▋░░░░░░░░░░░░░░░░░░░    2 / 64
-Next      2⁷   ░░░░░░░░░░░░░░░░░░░░    2 / 128
-Extended  2⁸   ░░░░░░░░░░░░░░░░░░░░    2 / 256
+64     2⁶    ▋░░░░░░░░░░░░░░░░░░░    2 / 64     ← we are here
+99     🍺    ░░░░░░░░░░░░░░░░░░░░    2 / 99
+128    2⁷    ░░░░░░░░░░░░░░░░░░░░    2 / 128
+256    2⁸    ░░░░░░░░░░░░░░░░░░░░    2 / 256
 ```
 
 ## 🔢 Why 64?
@@ -64,9 +65,11 @@ keeps coming back to**:
   is also the largest unsigned 64-bit integer. It is still the classic way to
   explain exponential growth.
 
-So we set the bar at 64 languages. After that the ladder stays binary: **128**
-is 2⁷, the size of the ASCII table, and **256** is 2⁸, the values of a single
-byte.
+So we set the bar at 64 languages. Next comes **99**, a toast to
+[*99 Bottles of Beer*](https://www.99-bottles-of-beer.net), the classic
+collection of one song in a thousand languages. After that the ladder goes
+back to binary: **128** is 2⁷, the size of the ASCII table, and **256** is 2⁸,
+the values of a single byte.
 
 ## 🇮🇹 The algorithm: the Italian Fiscal Code
 
@@ -146,6 +149,19 @@ Every program speaks the same contract: **JSON in on stdin, JSON out on
 stdout, exit code 0 or 1.** Containers run with networking disabled, so the
 algorithm really has to be in the code.
 
+## 🛣️ Roadmap
+
+| | Milestone | Why | What happens |
+|---|---|---|---|
+| ✅ | Foundation | | Spec, 87 test vectors, dockerized runner, CI |
+| 🎯 | **64** | 2⁶ | Built by the core team, ten languages per session |
+| 🍺 | **99** | 99 Bottles of Beer | Community takes over; dashboard and Guinness application |
+| 🔤 | **128** | 2⁷, ASCII | Historical machines and emulators |
+| 💾 | **256** | 2⁸, one byte | Formal record attempt, second challenge (SHA-256) |
+| 🚀 | **512 → 1024** | 2⁹ → 2¹⁰ | The long tail, and the moonshot |
+
+No deadlines, just milestones. Full plan in [ROADMAP.md](ROADMAP.md).
+
 ## 🤝 Contribute a language
 
 The unit of contribution is **one language not yet on the board**.
@@ -183,6 +199,7 @@ the evidence we are collecting.
 
 - [CHALLENGE.md](CHALLENGE.md): vision and operating plan ([🇮🇹 original](docs/CHALLENGE.it.md))
 - [SPECIFICATION.md](SPECIFICATION.md): the algorithm and the I/O contract
+- [ROADMAP.md](ROADMAP.md): milestones from 64 to 1024
 - [LANGUAGES.md](LANGUAGES.md): what counts as a distinct language
 - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
