@@ -2,10 +2,18 @@
 
 ## Implementations
 
-| Language | Family    | Directory                              | Implementation |
-|----------|-----------|----------------------------------------|----------------|
-| PHP      | scripting | [`languages/php`](languages/php)       | native         |
-| Python   | scripting | [`languages/python`](languages/python) | native         |
+| Language | Family | Directory | Implementation |
+|---|---|---|---|
+| C | general-purpose | [`languages/c`](languages/c) | native |
+| C++ | general-purpose | [`languages/cpp`](languages/cpp) | native |
+| Go | general-purpose | [`languages/go`](languages/go) | native |
+| Java | jvm | [`languages/java`](languages/java) | native |
+| JavaScript | scripting | [`languages/javascript`](languages/javascript) | native |
+| Perl | scripting | [`languages/perl`](languages/perl) | native |
+| PHP | scripting | [`languages/php`](languages/php) | native |
+| Python | scripting | [`languages/python`](languages/python) | native |
+| Ruby | scripting | [`languages/ruby`](languages/ruby) | native |
+| Rust | general-purpose | [`languages/rust`](languages/rust) | native |
 
 Verification status is computed by CI on every run (`./elc test`) and recorded
 in `reports/report.json`. Only `verified` implementations count.

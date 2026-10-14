@@ -1,0 +1,9 @@
+language: JavaScript
+family: scripting
+implementation: native
+source:
+  - fiscal_code.js
+run: ./run.sh
+version_command: echo "Node.js $(node --version)"
+authors:
+  - Openapi

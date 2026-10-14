@@ -1,0 +1,9 @@
+language: Go
+family: general-purpose
+implementation: native
+source:
+  - main.go
+run: ./run.sh
+version_command: cat VERSION
+authors:
+  - Openapi

@@ -1,0 +1,9 @@
+language: Ruby
+family: scripting
+implementation: native
+source:
+  - fiscal_code.rb
+run: ./run.sh
+version_command: ruby --version
+authors:
+  - Openapi

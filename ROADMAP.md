@@ -54,7 +54,7 @@ Community Pull Requests are welcome at any time and simply make us faster.
 
 | Session | Languages | Total |
 |---|---|---|
-| 1 | ✅ Python, ✅ PHP, C, C++, Rust, Go, JavaScript, Java, Ruby, Perl | 10 |
+| 1 ✅ | ✅ Python, ✅ PHP, ✅ C, ✅ C++, ✅ Rust, ✅ Go, ✅ JavaScript, ✅ Java, ✅ Ruby, ✅ Perl | 10 |
 | 2 | C#, Kotlin, Scala, Lua, Swift, Dart, Haskell, OCaml, Elixir, Erlang | 20 |
 | 3 | F#, Clojure, Common Lisp, Scheme, Racket, Prolog, Julia, R, Tcl, Groovy | 30 |
 | 4 | Bash, AWK, COBOL, FORTRAN, Ada, Pascal, D, Nim, Zig, Crystal | 40 |

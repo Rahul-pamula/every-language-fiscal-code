@@ -9,7 +9,7 @@ by the community in every language that can run it, all checked by the same
 test suite.**
 
 [![Verify implementations](https://github.com/openapi/every-language-fiscal-code/actions/workflows/verify.yml/badge.svg)](https://github.com/openapi/every-language-fiscal-code/actions/workflows/verify.yml)
-[![Verified languages](https://img.shields.io/badge/verified%20languages-2%20%2F%2064-blue)](LANGUAGES.md)
+[![Verified languages](https://img.shields.io/badge/verified%20languages-10%20%2F%2064-blue)](LANGUAGES.md)
 [![Test vectors](https://img.shields.io/badge/test%20vectors-87-brightgreen)](test-vectors/)
 [![Spec](https://img.shields.io/badge/spec-v0.1.0-orange)](SPECIFICATION.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
@@ -39,10 +39,10 @@ Our first goal is **64 languages**, then **99**, **128**, **256** and beyond.
 See [Why 64?](#-why-64) and the [roadmap](ROADMAP.md).
 
 ```text
-64     2⁶    ▋░░░░░░░░░░░░░░░░░░░    2 / 64     ← we are here
-99     🍺    ░░░░░░░░░░░░░░░░░░░░    2 / 99
-128    2⁷    ░░░░░░░░░░░░░░░░░░░░    2 / 128
-256    2⁸    ░░░░░░░░░░░░░░░░░░░░    2 / 256
+64     2⁶    ███▏░░░░░░░░░░░░░░░░   10 / 64     ← we are here
+99     🍺    ██░░░░░░░░░░░░░░░░░░   10 / 99
+128    2⁷    █▌░░░░░░░░░░░░░░░░░░   10 / 128
+256    2⁸    ▊░░░░░░░░░░░░░░░░░░░   10 / 256
 ```
 
 ## 🔢 Why 64?
@@ -97,10 +97,10 @@ The full rules are in [SPECIFICATION.md](SPECIFICATION.md).
 
 | | Language | | Language | | Language | | Language |
 |---|---|---|---|---|---|---|---|
-| ✅ | [Python](languages/python) | 🙋 | C | 🙋 | Rust | 🙋 | Prolog |
-| ✅ | [PHP](languages/php) | 🙋 | JavaScript | 🙋 | Java | 🙋 | Haskell |
-| 🙋 | COBOL | 🙋 | FORTRAN | 🙋 | Go | 🙋 | Ruby |
-| 🙋 | Common Lisp | 🙋 | Erlang | 🙋 | Ada | 🙋 | *…your favourite* |
+| ✅ | [C](languages/c) | ✅ | [C++](languages/cpp) | ✅ | [Go](languages/go) | ✅ | [Java](languages/java) |
+| ✅ | [JavaScript](languages/javascript) | ✅ | [Perl](languages/perl) | ✅ | [PHP](languages/php) | ✅ | [Python](languages/python) |
+| ✅ | [Ruby](languages/ruby) | ✅ | [Rust](languages/rust) | 🙋 | Haskell | 🙋 | Prolog |
+| 🙋 | COBOL | 🙋 | FORTRAN | 🙋 | Common Lisp | 🙋 | *…your favourite* |
 
 ✅ verified · 🙋 **wanted:** [pick an open issue](https://github.com/openapi/every-language-fiscal-code/issues?q=is%3Aissue+is%3Aopen+label%3Anew-language) or [propose another language](https://github.com/openapi/every-language-fiscal-code/issues/new?template=new-language.yml)
 

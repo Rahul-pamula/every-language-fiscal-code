@@ -1,0 +1,9 @@
+language: Perl
+family: scripting
+implementation: native
+source:
+  - fiscal_code.pl
+run: ./run.sh
+version_command: perl -e 'print "Perl $^V\n"'
+authors:
+  - Openapi

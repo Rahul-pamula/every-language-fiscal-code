@@ -1,0 +1,9 @@
+language: Rust
+family: general-purpose
+implementation: native
+source:
+  - src/main.rs
+run: ./run.sh
+version_command: cat VERSION
+authors:
+  - Openapi

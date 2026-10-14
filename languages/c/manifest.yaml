@@ -1,0 +1,9 @@
+language: C
+family: general-purpose
+implementation: native
+source:
+  - fiscal_code.c
+run: ./run.sh
+version_command: cat VERSION
+authors:
+  - Openapi
