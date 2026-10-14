@@ -1,0 +1,174 @@
+{
+  "spec_version": "0.1.0",
+  "description": "Ordinary inputs covering every month and both sexes.",
+  "cases": [
+    {
+      "id": "basic-001",
+      "description": "Illustrative example from CHALLENGE.md",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSMRA80A01H501U"
+      }
+    },
+    {
+      "id": "basic-002",
+      "description": "Widely published example (Matteo Moretti, Milan)",
+      "input": {
+        "surname": "MORETTI",
+        "name": "MATTEO",
+        "birth_date": "1925-04-09",
+        "sex": "M",
+        "birthplace_code": "F205"
+      },
+      "expected": {
+        "fiscal_code": "MRTMTT25D09F205Z"
+      }
+    },
+    {
+      "id": "basic-003",
+      "description": "Female, February",
+      "input": {
+        "surname": "BIANCHI",
+        "name": "LAURA",
+        "birth_date": "1992-02-23",
+        "sex": "F",
+        "birthplace_code": "F205"
+      },
+      "expected": {
+        "fiscal_code": "BNCLRA92B63F205S"
+      }
+    },
+    {
+      "id": "basic-004",
+      "description": "Male, March, name with 4+ consonants",
+      "input": {
+        "surname": "FERRARI",
+        "name": "GIANFRANCO",
+        "birth_date": "1975-03-15",
+        "sex": "M",
+        "birthplace_code": "L219"
+      },
+      "expected": {
+        "fiscal_code": "FRRGFR75C15L219X"
+      }
+    },
+    {
+      "id": "basic-005",
+      "description": "Female, May",
+      "input": {
+        "surname": "ESPOSITO",
+        "name": "ANNA",
+        "birth_date": "2001-05-07",
+        "sex": "F",
+        "birthplace_code": "F839"
+      },
+      "expected": {
+        "fiscal_code": "SPSNNA01E47F839W"
+      }
+    },
+    {
+      "id": "basic-006",
+      "description": "Male, June",
+      "input": {
+        "surname": "ROMANO",
+        "name": "LUCA",
+        "birth_date": "1968-06-30",
+        "sex": "M",
+        "birthplace_code": "G273"
+      },
+      "expected": {
+        "fiscal_code": "RMNLCU68H30G273P"
+      }
+    },
+    {
+      "id": "basic-007",
+      "description": "Female, July",
+      "input": {
+        "surname": "COLOMBO",
+        "name": "GIULIA",
+        "birth_date": "1999-07-04",
+        "sex": "F",
+        "birthplace_code": "A944"
+      },
+      "expected": {
+        "fiscal_code": "CLMGLI99L44A944D"
+      }
+    },
+    {
+      "id": "basic-008",
+      "description": "Male, August",
+      "input": {
+        "surname": "RICCI",
+        "name": "MARCO",
+        "birth_date": "1955-08-19",
+        "sex": "M",
+        "birthplace_code": "D612"
+      },
+      "expected": {
+        "fiscal_code": "RCCMRC55M19D612P"
+      }
+    },
+    {
+      "id": "basic-009",
+      "description": "Female, September",
+      "input": {
+        "surname": "MARINO",
+        "name": "SARA",
+        "birth_date": "2010-09-11",
+        "sex": "F",
+        "birthplace_code": "C351"
+      },
+      "expected": {
+        "fiscal_code": "MRNSRA10P51C351Z"
+      }
+    },
+    {
+      "id": "basic-010",
+      "description": "Male, October",
+      "input": {
+        "surname": "GRECO",
+        "name": "PAOLO",
+        "birth_date": "1987-10-02",
+        "sex": "M",
+        "birthplace_code": "L736"
+      },
+      "expected": {
+        "fiscal_code": "GRCPLA87R02L736L"
+      }
+    },
+    {
+      "id": "basic-011",
+      "description": "Female, November",
+      "input": {
+        "surname": "BRUNO",
+        "name": "ELENA",
+        "birth_date": "1949-11-28",
+        "sex": "F",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "BRNLNE49S68H501R"
+      }
+    },
+    {
+      "id": "basic-012",
+      "description": "Male, December",
+      "input": {
+        "surname": "GALLO",
+        "name": "DAVIDE",
+        "birth_date": "2005-12-12",
+        "sex": "M",
+        "birthplace_code": "L781"
+      },
+      "expected": {
+        "fiscal_code": "GLLDVD05T12L781E"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+name: Implement a new language
+description: Propose or claim a language that is not covered yet.
+title: "Implement Italian Fiscal Code in <language>"
+labels: ["help wanted"]
+body:
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      placeholder: e.g. COBOL
+    validations:
+      required: true
+  - type: input
+    id: toolchain
+    attributes:
+      label: Toolchain / runtime
+      description: Compiler or interpreter and a Docker base image, if you know one.
+      placeholder: e.g. GnuCOBOL 3.2 on debian:bookworm
+  - type: checkboxes
+    id: claim
+    attributes:
+      label: Claim
+      options:
+        - label: I would like to work on this implementation.

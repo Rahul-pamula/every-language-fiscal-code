@@ -1,0 +1,428 @@
+{
+  "spec_version": "0.1.0",
+  "description": "Boundary conditions of the encoding rules.",
+  "cases": [
+    {
+      "id": "edge-001",
+      "description": "Surname with two letters is padded with X",
+      "input": {
+        "surname": "FO",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "FOXMRA80A01H501I"
+      }
+    },
+    {
+      "id": "edge-002",
+      "description": "Surname with one letter is padded with XX",
+      "input": {
+        "surname": "O",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "OXXMRA80A01H501P"
+      }
+    },
+    {
+      "id": "edge-003",
+      "description": "Surname without consonants",
+      "input": {
+        "surname": "AIA",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "AIAMRA80A01H501S"
+      }
+    },
+    {
+      "id": "edge-004",
+      "description": "Surname of two vowels",
+      "input": {
+        "surname": "UA",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "UAXMRA80A01H501X"
+      }
+    },
+    {
+      "id": "edge-005",
+      "description": "Surname with exactly one consonant",
+      "input": {
+        "surname": "ALOE",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "LAOMRA80A01H501X"
+      }
+    },
+    {
+      "id": "edge-006",
+      "description": "Surname with spaces",
+      "input": {
+        "surname": "DE LUCA",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "DLCMRA80A01H501F"
+      }
+    },
+    {
+      "id": "edge-007",
+      "description": "Surname with apostrophe",
+      "input": {
+        "surname": "D'ANGELO",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "DNGMRA80A01H501R"
+      }
+    },
+    {
+      "id": "edge-008",
+      "description": "Double surname with hyphen",
+      "input": {
+        "surname": "ROSSI-BIANCHI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSMRA80A01H501U"
+      }
+    },
+    {
+      "id": "edge-009",
+      "description": "Lowercase input is normalized",
+      "input": {
+        "surname": "rossi",
+        "name": "mario",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSMRA80A01H501U"
+      }
+    },
+    {
+      "id": "edge-010",
+      "description": "Mixed case input is normalized",
+      "input": {
+        "surname": "De Luca",
+        "name": "Maria Grazia",
+        "birth_date": "1980-01-01",
+        "sex": "F",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "DLCMGR80A41H501H"
+      }
+    },
+    {
+      "id": "edge-011",
+      "description": "Name with exactly three consonants",
+      "input": {
+        "surname": "ROSSI",
+        "name": "CARLO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSCRL80A01H501V"
+      }
+    },
+    {
+      "id": "edge-012",
+      "description": "Name with exactly four consonants takes 1st, 3rd, 4th",
+      "input": {
+        "surname": "ROSSI",
+        "name": "STEFANO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSSFN80A01H501S"
+      }
+    },
+    {
+      "id": "edge-013",
+      "description": "Name with four consonants, female",
+      "input": {
+        "surname": "ROSSI",
+        "name": "ROBERTA",
+        "birth_date": "1980-01-01",
+        "sex": "F",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSRRT80A41H501W"
+      }
+    },
+    {
+      "id": "edge-014",
+      "description": "Name with many consonants",
+      "input": {
+        "surname": "ROSSI",
+        "name": "FRANCESCO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSFNC80A01H501B"
+      }
+    },
+    {
+      "id": "edge-015",
+      "description": "Compound name, consonants counted across words",
+      "input": {
+        "surname": "ROSSI",
+        "name": "GIAN LUCA",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSGLC80A01H501M"
+      }
+    },
+    {
+      "id": "edge-016",
+      "description": "Short name padded with vowels",
+      "input": {
+        "surname": "ROSSI",
+        "name": "ADA",
+        "birth_date": "1980-01-01",
+        "sex": "F",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSDAA80A41H501I"
+      }
+    },
+    {
+      "id": "edge-017",
+      "description": "Short name of two vowels padded with X",
+      "input": {
+        "surname": "ROSSI",
+        "name": "EO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSEOX80A01H501M"
+      }
+    },
+    {
+      "id": "edge-018",
+      "description": "Two-letter name padded with X",
+      "input": {
+        "surname": "ROSSI",
+        "name": "LI",
+        "birth_date": "1980-01-01",
+        "sex": "F",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSLIX80A41H501F"
+      }
+    },
+    {
+      "id": "edge-019",
+      "description": "Name without consonants",
+      "input": {
+        "surname": "ROSSI",
+        "name": "IAIA",
+        "birth_date": "1980-01-01",
+        "sex": "F",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "RSSIAI80A41H501V"
+      }
+    },
+    {
+      "id": "edge-020",
+      "description": "Female on the 1st: day becomes 41",
+      "input": {
+        "surname": "VERDI",
+        "name": "ANNA",
+        "birth_date": "1990-03-01",
+        "sex": "F",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "VRDNNA90C41H501N"
+      }
+    },
+    {
+      "id": "edge-021",
+      "description": "Female on the 31st: day becomes 71",
+      "input": {
+        "surname": "VERDI",
+        "name": "ANNA",
+        "birth_date": "1990-03-31",
+        "sex": "F",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "VRDNNA90C71H501Q"
+      }
+    },
+    {
+      "id": "edge-022",
+      "description": "Male on the 31st",
+      "input": {
+        "surname": "VERDI",
+        "name": "MARIO",
+        "birth_date": "1990-01-31",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "fiscal_code": "VRDMRA90A31H501V"
+      }
+    },
+    {
+      "id": "edge-023",
+      "description": "Leap day in a year divisible by 400",
+      "input": {
+        "surname": "NERI",
+        "name": "ALBERTO",
+        "birth_date": "2000-02-29",
+        "sex": "M",
+        "birthplace_code": "F205"
+      },
+      "expected": {
+        "fiscal_code": "NRELRT00B29F205B"
+      }
+    },
+    {
+      "id": "edge-024",
+      "description": "Leap day in an ordinary leap year",
+      "input": {
+        "surname": "NERI",
+        "name": "ALBERTA",
+        "birth_date": "1904-02-29",
+        "sex": "F",
+        "birthplace_code": "F205"
+      },
+      "expected": {
+        "fiscal_code": "NRELRT04B69F205J"
+      }
+    },
+    {
+      "id": "edge-025",
+      "description": "Year ending in 00",
+      "input": {
+        "surname": "NERI",
+        "name": "ALBERTO",
+        "birth_date": "1900-01-01",
+        "sex": "M",
+        "birthplace_code": "F205"
+      },
+      "expected": {
+        "fiscal_code": "NRELRT00A01F205F"
+      }
+    },
+    {
+      "id": "edge-026",
+      "description": "Last day of the year",
+      "input": {
+        "surname": "NERI",
+        "name": "ALBERTO",
+        "birth_date": "1999-12-31",
+        "sex": "M",
+        "birthplace_code": "F205"
+      },
+      "expected": {
+        "fiscal_code": "NRELRT99T31F205Y"
+      }
+    },
+    {
+      "id": "edge-027",
+      "description": "Year with leading zero digits",
+      "input": {
+        "surname": "NERI",
+        "name": "ALBERTO",
+        "birth_date": "2009-06-15",
+        "sex": "M",
+        "birthplace_code": "F205"
+      },
+      "expected": {
+        "fiscal_code": "NRELRT09H15F205S"
+      }
+    },
+    {
+      "id": "edge-028",
+      "description": "Foreign State of birth (Z code)",
+      "input": {
+        "surname": "SMITH",
+        "name": "JOHN",
+        "birth_date": "1970-07-20",
+        "sex": "M",
+        "birthplace_code": "Z404"
+      },
+      "expected": {
+        "fiscal_code": "SMTJHN70L20Z404O"
+      }
+    },
+    {
+      "id": "edge-029",
+      "description": "Birthplace code with zeros",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "A000"
+      },
+      "expected": {
+        "fiscal_code": "RSSMRA80A01A000C"
+      }
+    },
+    {
+      "id": "edge-030",
+      "description": "Unknown fields are ignored",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501",
+        "middle_name": "X",
+        "note": 1
+      },
+      "expected": {
+        "fiscal_code": "RSSMRA80A01H501U"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/openapi/every-language-fiscal-code/specification/input.schema.json",
+  "title": "Fiscal code input",
+  "description": "Input accepted on stdin by every implementation (specification 0.1.0). Unknown members are ignored.",
+  "type": "object",
+  "required": ["surname", "name", "birth_date", "sex", "birthplace_code"],
+  "properties": {
+    "surname": { "type": "string", "pattern": "^[A-Za-z '\\-]*[A-Za-z][A-Za-z '\\-]*$" },
+    "name": { "type": "string", "pattern": "^[A-Za-z '\\-]*[A-Za-z][A-Za-z '\\-]*$" },
+    "birth_date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Valid proleptic Gregorian date, year 0001-9999."
+    },
+    "sex": { "enum": ["M", "F"] },
+    "birthplace_code": { "type": "string", "pattern": "^[A-Z][0-9]{3}$" }
+  }
+}

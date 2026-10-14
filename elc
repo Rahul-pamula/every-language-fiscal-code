@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Every Language Challenge — entry point.
+#
+# The only host requirements are Docker and bash: the runner and every
+# language toolchain run inside containers.
+#
+#   ./elc list               list implementations
+#   ./elc test [lang...]     build and verify implementations (default: all)
+#   ./elc run <lang>         pipe stdin through one implementation
+#   ./elc shell <lang>       open a shell inside a language image
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+RUNNER_IMAGE="elc/runner:local"
+DOCKER_SOCK="${DOCKER_SOCK:-/var/run/docker.sock}"
+
+docker build -q -t "$RUNNER_IMAGE" tools/runner >/dev/null
+
+if [[ "${1:-}" == "shell" ]]; then
+  lang="${2:?usage: ./elc shell <language>}"
+  docker build -q -t "elc/$lang:local" "languages/$lang" >/dev/null
+  exec docker run --rm -it --network none --entrypoint sh "elc/$lang:local"
+fi
+
+tty_flag=()
+[[ -t 0 && -t 1 ]] && tty_flag=(-t)
+
+# Run as the host user so generated reports are not owned by root, and join
+# the socket's group so the Docker CLI inside the container can reach it.
+user_flags=(--user "$(id -u):$(id -g)")
+if sock_gid="$(stat -c %g "$DOCKER_SOCK" 2>/dev/null)"; then
+  user_flags+=(--group-add "$sock_gid")
+fi
+
+exec docker run --rm -i "${tty_flag[@]}" \
+  "${user_flags[@]}" \
+  -v "$DOCKER_SOCK:/var/run/docker.sock" \
+  -v "$PWD:/workspace" \
+  -e GIT_COMMIT="$(git rev-parse HEAD 2>/dev/null || true)" \
+  "$RUNNER_IMAGE" "$@"

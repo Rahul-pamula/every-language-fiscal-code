@@ -1,0 +1,9 @@
+language: PHP
+family: scripting
+implementation: native
+source:
+  - fiscal_code.php
+run: ./run.sh
+version_command: php --version
+authors:
+  - Openapi

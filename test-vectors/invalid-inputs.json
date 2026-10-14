@@ -1,0 +1,591 @@
+{
+  "spec_version": "0.1.0",
+  "description": "Malformed or out-of-scope inputs and the required error codes.",
+  "cases": [
+    {
+      "id": "invalid-001",
+      "description": "Empty input",
+      "raw_input": "",
+      "expected": {
+        "error": "invalid_json"
+      }
+    },
+    {
+      "id": "invalid-002",
+      "description": "Not JSON",
+      "raw_input": "ROSSI MARIO",
+      "expected": {
+        "error": "invalid_json"
+      }
+    },
+    {
+      "id": "invalid-003",
+      "description": "Truncated JSON object",
+      "raw_input": "{\"surname\":\"ROSSI\",\"name\":\"MARIO\"",
+      "expected": {
+        "error": "invalid_json"
+      }
+    },
+    {
+      "id": "invalid-004",
+      "description": "JSON array instead of object",
+      "raw_input": "[\"ROSSI\",\"MARIO\",\"1980-01-01\",\"M\",\"H501\"]",
+      "expected": {
+        "error": "invalid_json"
+      }
+    },
+    {
+      "id": "invalid-005",
+      "description": "JSON string instead of object",
+      "raw_input": "\"RSSMRA80A01H501U\"",
+      "expected": {
+        "error": "invalid_json"
+      }
+    },
+    {
+      "id": "invalid-006",
+      "description": "JSON null",
+      "raw_input": "null",
+      "expected": {
+        "error": "invalid_json"
+      }
+    },
+    {
+      "id": "invalid-007",
+      "description": "Missing surname",
+      "input": {
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "missing_field"
+      }
+    },
+    {
+      "id": "invalid-008",
+      "description": "Missing name",
+      "input": {
+        "surname": "ROSSI",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "missing_field"
+      }
+    },
+    {
+      "id": "invalid-009",
+      "description": "Missing birth_date",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "missing_field"
+      }
+    },
+    {
+      "id": "invalid-010",
+      "description": "Missing sex",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "missing_field"
+      }
+    },
+    {
+      "id": "invalid-011",
+      "description": "Missing birthplace_code",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M"
+      },
+      "expected": {
+        "error": "missing_field"
+      }
+    },
+    {
+      "id": "invalid-012",
+      "description": "Empty object",
+      "input": {},
+      "expected": {
+        "error": "missing_field"
+      }
+    },
+    {
+      "id": "invalid-013",
+      "description": "Empty surname",
+      "input": {
+        "surname": "",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_surname"
+      }
+    },
+    {
+      "id": "invalid-014",
+      "description": "Surname with only spaces",
+      "input": {
+        "surname": "   ",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_surname"
+      }
+    },
+    {
+      "id": "invalid-015",
+      "description": "Surname with digits",
+      "input": {
+        "surname": "ROSSI2",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_surname"
+      }
+    },
+    {
+      "id": "invalid-016",
+      "description": "Surname is a number",
+      "input": {
+        "surname": 42,
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_surname"
+      }
+    },
+    {
+      "id": "invalid-017",
+      "description": "Surname is null",
+      "input": {
+        "surname": null,
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_surname"
+      }
+    },
+    {
+      "id": "invalid-018",
+      "description": "Surname with non-ASCII letter (out of scope in v0.1)",
+      "input": {
+        "surname": "CANTÙ",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_surname"
+      }
+    },
+    {
+      "id": "invalid-019",
+      "description": "Empty name",
+      "input": {
+        "surname": "ROSSI",
+        "name": "",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_name"
+      }
+    },
+    {
+      "id": "invalid-020",
+      "description": "Name with only punctuation",
+      "input": {
+        "surname": "ROSSI",
+        "name": "'-'",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_name"
+      }
+    },
+    {
+      "id": "invalid-021",
+      "description": "Name with non-ASCII letter (out of scope in v0.1)",
+      "input": {
+        "surname": "ROSSI",
+        "name": "NICOLÒ",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_name"
+      }
+    },
+    {
+      "id": "invalid-022",
+      "description": "Name with a dot",
+      "input": {
+        "surname": "ROSSI",
+        "name": "M. LUISA",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_name"
+      }
+    },
+    {
+      "id": "invalid-023",
+      "description": "Name is an array",
+      "input": {
+        "surname": "ROSSI",
+        "name": [
+          "MARIO"
+        ],
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_name"
+      }
+    },
+    {
+      "id": "invalid-024",
+      "description": "Day 30 in February",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-02-30",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-025",
+      "description": "29 February in a non-leap century year",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1900-02-29",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-026",
+      "description": "29 February in a non-leap year",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "2023-02-29",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-027",
+      "description": "Day 31 in April",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-04-31",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-028",
+      "description": "Month 13",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-13-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-029",
+      "description": "Month 00",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-00-10",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-030",
+      "description": "Day 00",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-00",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-031",
+      "description": "Year 0000",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "0000-01-01",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-032",
+      "description": "Non-ISO date format",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "01/01/1980",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-033",
+      "description": "Date without zero padding",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-1-1",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-034",
+      "description": "Date with time component",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01T00:00:00",
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-035",
+      "description": "Date is a number",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": 19800101,
+        "sex": "M",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_birth_date"
+      }
+    },
+    {
+      "id": "invalid-036",
+      "description": "Sex is lowercase",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "m",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_sex"
+      }
+    },
+    {
+      "id": "invalid-037",
+      "description": "Sex is unknown letter",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "X",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_sex"
+      }
+    },
+    {
+      "id": "invalid-038",
+      "description": "Sex is spelled out",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "MALE",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_sex"
+      }
+    },
+    {
+      "id": "invalid-039",
+      "description": "Sex is empty",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "",
+        "birthplace_code": "H501"
+      },
+      "expected": {
+        "error": "invalid_sex"
+      }
+    },
+    {
+      "id": "invalid-040",
+      "description": "Birthplace code is lowercase",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "h501"
+      },
+      "expected": {
+        "error": "invalid_birthplace_code"
+      }
+    },
+    {
+      "id": "invalid-041",
+      "description": "Birthplace code too short",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H50"
+      },
+      "expected": {
+        "error": "invalid_birthplace_code"
+      }
+    },
+    {
+      "id": "invalid-042",
+      "description": "Birthplace code too long",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "H5010"
+      },
+      "expected": {
+        "error": "invalid_birthplace_code"
+      }
+    },
+    {
+      "id": "invalid-043",
+      "description": "Birthplace code starting with a digit",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "1501"
+      },
+      "expected": {
+        "error": "invalid_birthplace_code"
+      }
+    },
+    {
+      "id": "invalid-044",
+      "description": "Birthplace code with letters in the numeric part",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": "HL01"
+      },
+      "expected": {
+        "error": "invalid_birthplace_code"
+      }
+    },
+    {
+      "id": "invalid-045",
+      "description": "Birthplace code is a number",
+      "input": {
+        "surname": "ROSSI",
+        "name": "MARIO",
+        "birth_date": "1980-01-01",
+        "sex": "M",
+        "birthplace_code": 501
+      },
+      "expected": {
+        "error": "invalid_birthplace_code"
+      }
+    }
+  ]
+}

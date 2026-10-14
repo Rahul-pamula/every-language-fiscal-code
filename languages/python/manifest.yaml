@@ -1,0 +1,9 @@
+language: Python
+family: scripting
+implementation: native
+source:
+  - fiscal_code.py
+run: ./run.sh
+version_command: python3 --version
+authors:
+  - Openapi
