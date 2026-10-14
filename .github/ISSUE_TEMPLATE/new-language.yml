@@ -1,7 +1,7 @@
 name: Implement a new language
 description: Propose or claim a language that is not covered yet.
 title: "Implement Italian Fiscal Code in <language>"
-labels: ["help wanted"]
+labels: ["new-language", "help wanted"]
 body:
   - type: input
     id: language

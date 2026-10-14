@@ -63,6 +63,18 @@ Look at [`languages/python`](languages/python) and
 - **Synthetic data only.** Never add real people's personal data to tests or
   examples.
 
+## Hacktoberfest
+
+This repository takes part in [Hacktoberfest](https://hacktoberfest.com).
+
+- One language per Pull Request, linked to its issue (`Closes #<n>`).
+- Claim the issue first. If a claimed issue has had no activity for a week,
+  it may be reassigned.
+- A PR is labelled `hacktoberfest-accepted` once CI is green and a maintainer
+  has reviewed it. PRs that are low-effort, copied from elsewhere, generated
+  without being tested or that break the rules above are labelled `spam` and
+  do not count.
+
 ## Changing the specification or the test vectors
 
 Open an issue first. Changes to expected outputs affect every implementation
