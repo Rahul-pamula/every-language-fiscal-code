@@ -9,7 +9,7 @@ by the community in every language that can run it, all checked by the same
 test suite.**
 
 [![Verify implementations](https://github.com/openapi/every-language-fiscal-code/actions/workflows/verify.yml/badge.svg)](https://github.com/openapi/every-language-fiscal-code/actions/workflows/verify.yml)
-[![Verified languages](https://img.shields.io/badge/verified%20languages-2%20%2F%20100-blue)](LANGUAGES.md)
+[![Verified languages](https://img.shields.io/badge/verified%20languages-2%20%2F%2064-blue)](LANGUAGES.md)
 [![Test vectors](https://img.shields.io/badge/test%20vectors-87-brightgreen)](test-vectors/)
 [![Spec](https://img.shields.io/badge/spec-v0.1.0-orange)](SPECIFICATION.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
@@ -35,13 +35,38 @@ Each implementation in this repository:
 - ✅ **passes the same 87 test vectors** with identical JSON output;
 - 🔍 **leaves evidence**: source hashes, environment, per-test results and logs.
 
-Our first target is **100 languages**, then **256 and beyond**.
+Our target is **64 languages**, and then we keep doubling: **128**, **256** and
+beyond. [Why 64?](#-why-64)
 
 ```text
-Milestone 1   ████░░░░░░░░░░░░░░░░    2 / 10
-Goal          ▍░░░░░░░░░░░░░░░░░░░    2 / 100
-Extended      ░░░░░░░░░░░░░░░░░░░░    2 / 256
+Goal      2⁶   ▋░░░░░░░░░░░░░░░░░░░    2 / 64
+Next      2⁷   ░░░░░░░░░░░░░░░░░░░░    2 / 128
+Extended  2⁸   ░░░░░░░░░░░░░░░░░░░░    2 / 256
 ```
+
+## 🔢 Why 64?
+
+Because computers count in powers of two, and **64 is the number computing
+keeps coming back to**:
+
+- **2⁶ = 64.** Six bits, `000000` to `111111`, are exactly enough to give every
+  language on the board its own ID.
+- **64-bit.** It is the word size of almost every processor running today:
+  x86-64 in laptops and servers, ARM64 in phones and the cloud. Your code runs
+  on 64 bits.
+- **Base64.** Its 64-character alphabet carries binary data through text
+  everywhere: email attachments, `data:` URLs, JSON Web Tokens.
+- **Commodore 64 and Nintendo 64.** Two machines that brought generations to
+  programming and gaming. The C64 is often cited as the best-selling single
+  computer model of all time.
+- **The 64 squares of a chessboard.** In the old legend, one grain of wheat on
+  the first square, doubled on every next square, adds up to 2⁶⁴ − 1, which
+  is also the largest unsigned 64-bit integer. It is still the classic way to
+  explain exponential growth.
+
+So we set the bar at 64 languages. After that the ladder stays binary: **128**
+is 2⁷, the size of the ASCII table, and **256** is 2⁸, the values of a single
+byte.
 
 ## 🇮🇹 The algorithm: the Italian Fiscal Code
 

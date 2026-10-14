@@ -2,6 +2,11 @@
 ## Un algoritmo, tutti i linguaggi del mondo
 ### Progetto open source promosso da Openapi — Specifica e piano operativo
 
+> **Aggiornamento, ottobre 2026.** Il primo obiettivo pubblico è **64 linguaggi**
+> (2⁶), seguito da 128 e 256: ogni traguardo è una potenza di due. Vedi
+> [Why 64?](../README.md#-why-64) nel README. Gli obiettivi di 100 linguaggi
+> riportati sotto fanno parte della proposta originale.
+
 **Stato:** proposta progettuale consolidata  
 **Data:** 14 ottobre 2026  
 **Organizzazione promotrice:** Openapi  
